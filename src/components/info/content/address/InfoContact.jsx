@@ -10,13 +10,13 @@ const InfoContact = () => {
                         <a >
                             <i className="fa fa-map-marker" aria-hidden="true"></i>
                             <span>
-                                123 Bow Street, London, Ontario, Canada
+                                 London, On, CANADA
                             </span>
                         </a>
                         <a >
                             <i className="fa fa-phone" aria-hidden="true"></i>
                             <span>
-                                Call +1 613-123-4567
+                                Call +1 613-617-3904
                             </span>
                         </a>
                         <a >
