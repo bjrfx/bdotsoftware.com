@@ -1,0 +1,13 @@
+converting html code to react 
+
+1. hero  //completed
+2. services section //completed
+3. about section //completed
+4. why section //completed
+5. team section //completed
+6. client section //completed
+    In Client.jsx className = owl-carousel is missing. 
+    Which is a child of className = "carousel-wrap" for reference: Refer Test.jsx -> client section
+    Issue -> when i add className of "owl-carousel" client cards are not displaying. Cards are not rendering into the app.
+7. info section
+8. footer section //completed
