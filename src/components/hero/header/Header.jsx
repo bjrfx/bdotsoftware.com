@@ -6,8 +6,8 @@ const Header = () => {
         <header className="header_section">
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg custom_nav-container ">
-                <Link to='/'>
-                    <a className="navbar-brand" >
+                <Link className="navbar-brand" to='/'>
+                    <a  >
                         <span>
                         <img src={BGwhiteLogo} width="80rem" alt="" />
                         </span>
@@ -32,8 +32,8 @@ const Header = () => {
                             <Link className="nav-item" to='/why'>
                                 <a className="nav-link" >Why Us</a>
                             </Link>
-                            <Link className="nav-item" to='/team'>
-                                <a className="nav-link" >Team</a>
+                            <Link className="nav-item" to='/careers'>
+                                <a className="nav-link" >Careers</a>
                             </Link>
                             <Link className="nav-item" to='/blog'>
                                 <a className="nav-link" >Blog</a>

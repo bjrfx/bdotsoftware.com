@@ -42,8 +42,8 @@ const CommonHeader = () => {
                             <Link className="nav-item" to='/why'>
                                 <a className="nav-link" >Why Us</a>
                             </Link>
-                            <Link className="nav-item" to='/team'>
-                                <a className="nav-link" >Team</a>
+                            <Link className="nav-item" to='/careers'>
+                                <a className="nav-link" >Careers</a>
                             </Link>
                             <Link className="nav-item" to='/blog'>
                                 <a className="nav-link" >Blog</a>

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.js": "/static/js/main.0b39fd6a.js",
+    "main.js": "/static/js/main.4ebeb662.js",
     "static/media/devops.png": "/static/media/devops.0d5e265ea2bb5706a00c.png",
     "static/media/motion-graphics-min.png": "/static/media/motion-graphics-min.a8adf41c7987d542d74d.png",
     "static/media/BDOTWHITE.png": "/static/media/BDOTWHITE.ea19591f13a1b9119b38.png",
@@ -8,7 +8,6 @@
     "static/media/CloudMigration.png": "/static/media/CloudMigration.cfd06972b3eb1aa5c184.png",
     "static/media/hero-bg.png": "/static/media/hero-bg.ca8bd401eac4682570d2.png",
     "static/media/logo-2.png": "/static/media/logo-2.22bd6bf6bf7bdc019831.png",
-    "static/media/icons8-account.png": "/static/media/icons8-account.0305aacc8ae7e60cd8f7.png",
     "static/media/w4.png": "/static/media/w4.742caae5101d98ae2c49.png",
     "static/media/logo-masakali.png": "/static/media/logo-masakali.b0ab927d357f8aa74895.png",
     "static/media/BG-white-trans.png": "/static/media/BG-white-trans.ca769cf4022344f94be1.png",
@@ -17,9 +16,9 @@
     "static/media/icons8-idea_sharing.png": "/static/media/icons8-idea_sharing.ce2f6cb4b3d80c47ec1c.png",
     "static/media/icons8-call_to_action.png": "/static/media/icons8-call_to_action.8f354decd1c08db21dd1.png",
     "index.html": "/index.html",
-    "main.0b39fd6a.js.map": "/static/js/main.0b39fd6a.js.map"
+    "main.4ebeb662.js.map": "/static/js/main.4ebeb662.js.map"
   },
   "entrypoints": [
-    "static/js/main.0b39fd6a.js"
+    "static/js/main.4ebeb662.js"
   ]
 }
