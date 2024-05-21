@@ -1,10 +1,6 @@
 import React from 'react'
-import PlatformEngineering from './PlatformEngineering/PlatformEngineering'
-import CloudMigration from './cloud-migration/CloudMigration'
-import Devops from './devops/Devops'
-import MotionGraphics from './motiongraphics/MotionGraphics'
-import WebDevelopment from './webdevelopment/WebDevelopment'
 import Ourservices from './ourservices/Ourservices'
+import AllServices from './AllServices'
 
 const AddonServices = () => {
   return (
@@ -13,11 +9,7 @@ const AddonServices = () => {
         <div className="container ">
            <Ourservices />
             <div className="row">
-                <PlatformEngineering />
-                <CloudMigration />
-                <Devops />
-                <MotionGraphics />
-                <WebDevelopment />
+                <AllServices />
             </div>
             {/* <div className="btn-box">
                 <a >
