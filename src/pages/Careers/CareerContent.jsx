@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
+
 const CareerContent = () => {
     const [show, setShow] = useState(false);
 
@@ -15,7 +16,7 @@ const CareerContent = () => {
             <div className="container-fluid" style={{ marginBottom: "5rem" }}>
                 <div className="heading_container heading_center">
                     <h2 className="">
-                        Careers <span> </span>
+                        Career <span>Opportunities</span>
                     </h2>
                 </div>
 
