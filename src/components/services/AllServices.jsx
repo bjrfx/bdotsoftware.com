@@ -10,6 +10,35 @@ import Card from 'react-bootstrap/Card';
 
 const AllServices = () => {
     const [key, setKey] = useState('services');
+    const [searchTerm, setSearchTerm] = useState('');
+    const handleSearchTermChange = (newSearchTerm) => {
+        setSearchTerm(newSearchTerm);
+        console.log(searchTerm)
+    }
+    const handleSearch = (term) => {
+        console.log(term)
+    }
+    const filteredServices = servicesData.filter(data => {
+        const searchData = [
+            data.title,
+            data.description,
+            ...(data.content && data.content.list ? data.content.list.map(item => item.title) : []),
+            ...(data.content && data.content.list ? data.content.list.map(item => item.subsection && item.subsection.description) : [])
+        ].join(' ').toLowerCase();
+
+        return searchData.includes(searchTerm.toLowerCase());
+    });
+
+    // Test-------
+    // const filteredServicesSub = servicesData.filter(data => {
+    //     const searchData = [
+    //       ...(data.content && data.content.list ? data.content.list.map(item => item.title) : []),
+    //       ...(data.content && data.content.list ? data.content.list.map(item => item.subsection && item.subsection.description) : [])
+    //     ].join(' ').toLowerCase();
+      
+    //     return searchData.includes(searchTerm.toLowerCase());
+    //   });
+
 
     return (
         <Fragment>
@@ -45,33 +74,36 @@ const AllServices = () => {
                 </Tab>
 
                 <Tab eventKey="all services" title="All Services">
-                        <Container>
-                            <SearchBar />
+                    <Container>
+                        <SearchBar onSearch={handleSearch} onSearchTermChange={handleSearchTermChange} />
 
-                            {servicesData.map((data) => {
-                                return (
+                        {filteredServices.map((data) => {
+                            return (
+                                <>
                                     <Card className='mt-4'>
                                         <Card.Body>
                                             <Card.Title>{data.title}</Card.Title>
-                                            <Card.Text>{data.description}</Card.Text>
-                                            <Card>
-                                                <Card.Body><Card.Text>{data.content && data.content.description}</Card.Text></Card.Body>
-                                                {data.content && data.content.list.map((item) => {
-                                                    return (
-                                                        <Card className='m-2'>
-                                                            <Card.Body>
-                                                                <Card.Title>{item.title}</Card.Title>
-                                                                <Card.Text>{item.subsection && item.subsection.description}</Card.Text>
-                                                            </Card.Body>
-                                                        </Card>
-                                                    )
-                                                })}
+                                            {/* <Card.Text>{data.description}</Card.Text> */}
+                                            {data.content && data.content.list.map((item) => {
+                                        return (
+                                            <Card className='mt-4'>
+                                                <Card.Body>
+                                                    <Card.Title>{item.title}</Card.Title>
+                                                    <Card.Text>{item.subsection && item.subsection.description}</Card.Text>
+                                                </Card.Body>
                                             </Card>
+                                        )
+                                    })}
                                         </Card.Body>
                                     </Card>
-                                )
-                            })}
-                        </Container>
+                                    {/* <Card>
+                                        <Card.Body><Card.Text>{data.content && data.content.description}</Card.Text></Card.Body>
+
+                                    </Card> */}
+                                </>
+                            )
+                        })}
+                    </Container>
                 </Tab>
             </Tabs>
         </Fragment>

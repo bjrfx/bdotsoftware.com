@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, onSearchTermChange }) => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
+        const newSearchTerm = event.target.value;
+        onSearchTermChange(newSearchTerm);
     };
 
     const handleSearchSubmit = (event) => {

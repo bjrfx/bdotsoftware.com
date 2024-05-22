@@ -11,7 +11,7 @@ function ModalFull({ data }) {
     const [show, setShow] = useState(false);
 
     const handleClick = () => {
-        console.log(`Clicked button with data id: ${data.id} and title: ${data.title}`)
+        // console.log(`Clicked button with data id: ${data.id} and title: ${data.title}`)
     }
 
     function handleShow(breakpoint) {
