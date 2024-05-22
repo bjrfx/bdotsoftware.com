@@ -12,17 +12,19 @@ const CareerContent = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     return (
-        <section className="team_section layout_padding">
-            <div className="container-fluid" style={{ marginBottom: "5rem" }}>
-                <div className="heading_container heading_center">
-                    <h2 className="">
+        <section className="service_section layout_padding">
+            <div className="service_container" style={{ marginBottom: "5rem" }}>
+                <div className="container">
+                    <div className='heading_container heading_center'>
+                    <h2>
                         Career <span>Opportunities</span>
                     </h2>
+                    </div>
                 </div>
 
                 <Container>
                     <Stack className="mt-4" align="start" gap={3}>
-                        <div className="p-2"><h3>General Application</h3></div>
+                        <div className="p-2"><h3 style={{fontWeight: "200"}}>General Application</h3></div>
                         <div className="p-2"><p>If you feel that you might be able to add some magic to our team, hit us up!</p></div>
                         <div className="p-2">
                             <Button variant="primary" onClick={handleShow}>

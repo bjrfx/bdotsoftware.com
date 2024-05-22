@@ -3,6 +3,7 @@ import ExpertiseAndInnovation from './whycards/ExpertiseAndInnovation'
 import TailoredSolutions from './whycards/TailoredSolutions'
 import QualityAndPrecision from './whycards/QualityAndPrecision'
 import TimelyDeliveryAndSupport from './whycards/TimelyDeliveryAndSupport'
+import { Link } from 'react-router-dom'
 const Why = () => {
   return (
 
@@ -24,9 +25,9 @@ const Why = () => {
             <TimelyDeliveryAndSupport />
         </div>
         <div className="btn-box">
-            <a >
+            <Link to='/why'>
                 Read More
-            </a>
+            </Link>
         </div>
     </div>
 </section>
