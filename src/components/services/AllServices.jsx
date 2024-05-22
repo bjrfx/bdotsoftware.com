@@ -84,7 +84,13 @@ const AllServices = () => {
                                         <Card.Body>
                                             <Card.Title>{data.title}</Card.Title>
                                             {/* <Card.Text>{data.description}</Card.Text> */}
-                                            {data.content && data.content.list.map((item) => {
+                                        </Card.Body>
+                                    </Card>
+                                    {/* <Card>
+                                        <Card.Body><Card.Text>{data.content && data.content.description}</Card.Text></Card.Body>
+
+                                    </Card> */}
+                                    {data.content && data.content.list.map((item) => {
                                         return (
                                             <Card className='mt-4'>
                                                 <Card.Body>
@@ -94,12 +100,6 @@ const AllServices = () => {
                                             </Card>
                                         )
                                     })}
-                                        </Card.Body>
-                                    </Card>
-                                    {/* <Card>
-                                        <Card.Body><Card.Text>{data.content && data.content.description}</Card.Text></Card.Body>
-
-                                    </Card> */}
                                 </>
                             )
                         })}
