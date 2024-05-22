@@ -1,3 +1,5 @@
+--------If this text visible, then it's updating on panel---------
+
 import React, { Fragment } from 'react'
 import servicesData from './servicesData'
 import ModalFull from './ModalFull'
