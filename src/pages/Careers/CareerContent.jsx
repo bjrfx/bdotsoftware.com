@@ -27,7 +27,7 @@ const CareerContent = () => {
                         <div className="p-2"><h3 style={{fontWeight: "200"}}>General Application</h3></div>
                         <div className="p-2"><p>If you feel that you might be able to add some magic to our team, hit us up!</p></div>
                         <div className="p-2">
-                            <Button variant="primary" onClick={handleShow}>
+                            <Button variant="outline-dark" onClick={handleShow}>
                                 Apply
                             </Button>
 
@@ -88,7 +88,7 @@ const CareerContent = () => {
                                             <option value="2">No</option>
                                             <option value="3">No, but I would like to relocate</option>
                                         </Form.Select>
-                                        <button type="submit" className="btn btn-primary">Submit</button>
+                                        <Button type="submit" className="btn btn-primary">Submit</Button>
                                     </Form>
                                 </Modal.Body>
                                 <Modal.Footer>
