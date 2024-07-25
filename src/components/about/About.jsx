@@ -1,6 +1,7 @@
 import React from 'react'
 // import aboutimg from '../../images/about-img.png'
 import bdotWhiteImage from '../../images/BDOTWHITE.png'
+import { Link } from 'react-router-dom'
 const About = () => {
   return (
 
@@ -33,9 +34,9 @@ const About = () => {
                         Whether you're a small startup or a multinational corporation, we're here to help you harness the power of technology to achieve your goals and propel your business forward.
                         Get in touch with us today and let's embark on a journey to transform your digital presence together!
                     </p>
-                    <a>
-                        Read More
-                    </a>
+                    <Link to='/about'>
+                     Read more
+                    </Link>
                 </div>
             </div>
         </div>
