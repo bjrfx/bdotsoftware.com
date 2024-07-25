@@ -1,9 +1,15 @@
 import React from 'react'
 import Ourservices from './ourservices/Ourservices'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import servicesData from './servicesData'
 import SingleService from './SingleService'
 const Services = () => {
+    const navigate = useNavigate();
+    const handleClick = (to) => (e) => {
+        e.preventDefault();
+        navigate(to);
+        window.scrollTo(0, 0);
+    };
     return (
 
         <section className="service_section layout_padding">
@@ -31,7 +37,7 @@ const Services = () => {
                         />
                     </div>
                     <div className="btn-box">
-                <Link to='/services'>
+                <Link onClick={handleClick('/services')} to='/services'>
                 
                     View All
                

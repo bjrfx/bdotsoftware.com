@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Links = () => {
+    const navigate = useNavigate();
+    const handleClick = (to) => (e) => {
+        e.preventDefault();
+        navigate(to);
+        window.scrollTo(0, 0);
+    };
     return (
         <div className="col-md-6 col-lg-2 mx-auto info_col">
             <div className="info_link_box">
@@ -9,27 +15,27 @@ const Links = () => {
                     Links
                 </h4>
                 <div className="info_links">
-                    <Link to='/'>
+                    <Link onClick={handleClick('/')} to='/'>
                     <a className="" >
                         Home
                     </a>
                     </Link>
-                    <Link to='/about'>
+                    <Link onClick={handleClick('/about')} to='/about'>
                     <a className="" >
                         About
                     </a>
                     </Link>
-                    <Link to='/services'>
+                    <Link onClick={handleClick('/services')} to='/services'>
                     <a className="" >
                         Services
                     </a>
                     </Link>
-                    <Link to='/why'>
+                    <Link onClick={handleClick('/why')} to='/why'>
                     <a className="" >
                         Why Us
                     </a>
                     </Link>
-                    <Link to='/team'>
+                    <Link onClick={handleClick('/team')} to='/team'>
                     <a className="" >
                         Team
                     </a>

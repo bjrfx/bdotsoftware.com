@@ -2,8 +2,14 @@ import React from 'react'
 import webmin from '../../../images/web-minified.png'
 import motiongraphics from '../../../images/motion-graphics-min.png'
 import devops from '../../../images/devops.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Slider = () => {
+    const navigate = useNavigate();
+    const handleClick = (to) => (e) => {
+        e.preventDefault();
+        navigate(to);
+        window.scrollTo(0, 0);
+    };
   return (
      <section className="slider_section ">
      <div id="customCarousel1" className="carousel slide" data-ride="carousel">
@@ -20,7 +26,7 @@ const Slider = () => {
                                      Our web development team is proficient in the latest technologies and frameworks. We build websites that are not only visually appealing but also functionally robust. From e-commerce plartform to personal blogs, we've got you covered.
                                  </p>
                                  <div className="btn-box">
-                                    <Link className='btn1' to='/services'>
+                                    <Link className='btn1' onClick={handleClick('/services')} to='/services'>
                                         Read More
                                     </Link>
                                      {/* <a  className="btn1">
@@ -50,7 +56,7 @@ const Slider = () => {
                                      Bring your website to life with our motion graphics services. Our designers create engaging animations that enhance user experience and make your website stand out from the crowd.
                                  </p>
                                  <div className="btn-box">
-                                 <Link className='btn1' to='/services'>
+                                 <Link className='btn1' onClick={handleClick('/services')} to='/services'>
                                         Read More
                                     </Link>
                                      {/* <a  className="btn1">
@@ -80,7 +86,7 @@ const Slider = () => {
                                      Our DevOps services aim to streamline your operations and improve collaboration between development and IT operations. We provide continuous integration, continuous delivery, automated testing, and infrastructure monitoring to ensure your web applications run smoothly and efficiently.
                                  </p>
                                  <div className="btn-box">
-                                 <Link className='btn1' to='/services'>
+                                 <Link className='btn1' onClick={handleClick('/services')} to='/services'>
                                         Read More
                                     </Link>
                                      {/* <a  className="btn1">

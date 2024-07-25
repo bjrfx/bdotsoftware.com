@@ -1,12 +1,18 @@
 import React from 'react'
 import BGwhiteLogo from '../../../images/Logos/BG-white-trans.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Header = () => {
+    const navigate = useNavigate();
+    const handleClick = (to) => (e) => {
+        e.preventDefault();
+        navigate(to);
+        window.scrollTo(0, 0);
+    };
     return (
         <header className="header_section">
             <div className="container-fluid">
                 <nav className="navbar navbar-expand-lg custom_nav-container ">
-                <Link className="navbar-brand" to='/'>
+                <Link className="navbar-brand" onClick={handleClick('/')} to='/'>
                     <a  >
                         <span>
                         <img src={BGwhiteLogo} width="80rem" alt="" />
@@ -20,22 +26,22 @@ const Header = () => {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav  ">
-                            <Link className="nav-item" to='/'>
+                            <Link className="nav-item" onClick={handleClick('/')} to='/'>
                                 <a className="nav-link" >Home </a>
                             </Link>
-                            <Link className="nav-item" to='/about'>
+                            <Link className="nav-item" onClick={handleClick('/about')} to='/about'>
                                 <a className="nav-link" > About  </a>
                             </Link>
-                            <Link className="nav-item" to='/services'>
+                            <Link className="nav-item" onClick={handleClick('/services')} to='/services'>
                                 <a className="nav-link" >Services </a>
                             </Link>
-                            <Link className="nav-item" to='/why'>
+                            <Link className="nav-item" onClick={handleClick('/why')} to='/why'>
                                 <a className="nav-link" >Why Us</a>
                             </Link>
-                            <Link className="nav-item" to='/careers'>
+                            <Link className="nav-item" onClick={handleClick('/careers')} to='/careers'>
                                 <a className="nav-link" >Careers</a>
                             </Link>
-                            <Link className="nav-item" to='/blog'>
+                            <Link className="nav-item" onClick={handleClick('/blog')} to='/blog'>
                                 <a className="nav-link" >Blog</a>
                             </Link>
                             <Link className="nav-item">

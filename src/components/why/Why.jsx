@@ -3,8 +3,14 @@ import ExpertiseAndInnovation from './whycards/ExpertiseAndInnovation'
 import TailoredSolutions from './whycards/TailoredSolutions'
 import QualityAndPrecision from './whycards/QualityAndPrecision'
 import TimelyDeliveryAndSupport from './whycards/TimelyDeliveryAndSupport'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Why = () => {
+    const navigate = useNavigate();
+    const handleClick = (to) => (e) => {
+        e.preventDefault();
+        navigate(to);
+        window.scrollTo(0, 0);
+    };
   return (
 
     <section className="why_section layout_padding">
@@ -25,7 +31,7 @@ const Why = () => {
             <TimelyDeliveryAndSupport />
         </div>
         <div className="btn-box">
-            <Link to='/why'>
+            <Link onClick={handleClick('/why')} to='/why'>
                 Read More
             </Link>
         </div>
