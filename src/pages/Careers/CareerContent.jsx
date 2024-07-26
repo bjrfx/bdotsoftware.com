@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { db, collection, addDoc } from '../../firebase/firebaseConfig'; // Adjust the path as needed
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack';
 import Form from 'react-bootstrap/Form';
@@ -36,8 +36,9 @@ const CareerContent = () => {
     setSuccess('');
 
     try {
-      const response = await axios.post('https://bdotsoftware.com/apply', formData);
-      setSuccess(response.data);
+      // Add form data to Firestore
+      const docRef = await addDoc(collection(db, "careerformdata"), formData);
+      setSuccess('Application submitted successfully!');
       setFormData({
         firstName: '',
         lastName: '',
@@ -49,7 +50,7 @@ const CareerContent = () => {
         livingInOntario: ''
       });
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error adding document:', error);
       setError('Error submitting application. Please try again.');
     }
   };
