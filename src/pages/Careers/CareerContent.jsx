@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
-import axios from 'axios';
 
 const CareerContent = () => {
   const [show, setShow] = useState(false);
@@ -17,33 +17,46 @@ const CareerContent = () => {
     phoneNumber: '',
     message: '',
     citizenship: '',
-    livingInOntario: '',
+    livingInOntario: ''
   });
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData(prevData => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    axios.post('http://185.27.133.12/apply', formData)
-      .then((response) => {
-        alert('Application submitted successfully');
-        setShow(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('Error submitting application');
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setError('');
+    setSuccess('');
+
+    try {
+      const response = await axios.post('https://bdotsoftware.com/apply', formData);
+      setSuccess(response.data);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        website: '',
+        phoneNumber: '',
+        message: '',
+        citizenship: '',
+        livingInOntario: ''
       });
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Error submitting application. Please try again.');
+    }
   };
 
   return (
     <section className="service_section layout_padding">
-      <div className="service_container" style={{ marginBottom: "5rem" }}>
+      <div className="service_container" style={{ marginBottom: '5rem' }}>
         <div className="container">
           <div className='heading_container heading_center'>
             <h2>
@@ -54,8 +67,12 @@ const CareerContent = () => {
 
         <Container>
           <Stack className="mt-4" align="start" gap={3}>
-            <div className="p-2"><h3 style={{fontWeight: "200"}}>General Application</h3></div>
-            <div className="p-2"><p>If you feel that you might be able to add some magic to our team, hit us up!</p></div>
+            <div className="p-2">
+              <h3 style={{ fontWeight: '200' }}>General Application</h3>
+            </div>
+            <div className="p-2">
+              <p>If you feel that you might be able to add some magic to our team, hit us up!</p>
+            </div>
             <div className="p-2">
               <Button variant="outline-dark" onClick={handleShow}>
                 Apply
@@ -71,54 +88,106 @@ const CareerContent = () => {
                   <Modal.Title>HIRE ME ANYWAY!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                  <Form onSubmit={handleSubmit}>
+                  <Form onSubmit={onSubmit}>
                     <Stack direction="horizontal" gap={3}>
                       <div className="p-2">
-                        <Form.Control type="text" name="firstName" placeholder="First Name" onChange={handleChange} />
+                        <Form.Control
+                          type="text"
+                          placeholder="First Name"
+                          name="firstName"
+                          value={formData.firstName}
+                          onChange={handleChange}
+                        />
                       </div>
                       <div className="p-2">
-                        <Form.Control type="text" name="lastName" placeholder="Last Name" onChange={handleChange} />
+                        <Form.Control
+                          type="text"
+                          placeholder="Last Name"
+                          name="lastName"
+                          value={formData.lastName}
+                          onChange={handleChange}
+                        />
                       </div>
                     </Stack>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3">
                       <Form.Label>Email address</Form.Label>
-                      <Form.Control type="email" name="email" placeholder="Enter email" onChange={handleChange} />
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      />
                       <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                       </Form.Text>
                     </Form.Group>
-                    <div>
+                    <Form.Group className="mb-3">
                       <Form.Label htmlFor="basic-url">Your Website</Form.Label>
                       <InputGroup className="mb-3">
-                        <InputGroup.Text id="basic-addon3">
-                          http:
-                        </InputGroup.Text>
-                        <Form.Control id="basic-url" name="website" aria-describedby="basic-addon3" onChange={handleChange} />
+                        <InputGroup.Text id="basic-addon3">http:</InputGroup.Text>
+                        <Form.Control
+                          id="basic-url"
+                          name="website"
+                          aria-describedby="basic-addon3"
+                          value={formData.website}
+                          onChange={handleChange}
+                        />
                       </InputGroup>
-                    </div>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    </Form.Group>
+                    <Form.Group className="mb-3">
                       <Form.Label>Phone Number</Form.Label>
-                      <Form.Control type="text" name="phoneNumber" placeholder="Enter Phone Number" onChange={handleChange} />
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Phone Number"
+                        name="phoneNumber"
+                        value={formData.phoneNumber}
+                        onChange={handleChange}
+                      />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Group className="mb-3">
                       <Form.Label>Message</Form.Label>
-                      <Form.Control as="textarea" name="message" placeholder="Enter Message" onChange={handleChange} />
+                      <Form.Control
+                        as="textarea"
+                        placeholder="Enter Message"
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                      />
                     </Form.Group>
-                    <Form.Label htmlFor="drop-down-place">Are you a citizen or current resident of Canada with an active work visa?</Form.Label>
-                    <Form.Select id='drop-down-place' name="citizenship" aria-label="Default select example" onChange={handleChange}>
-                      <option>Select an option</option>
-                      <option value="1">I am a Canadian citizen</option>
-                      <option value="2">I am a Canadian resident with a work visa</option>
-                      <option value="3">Other - please explain in the "Message" field above</option>
-                    </Form.Select>
-                    <Form.Label htmlFor="drop-down-place2">Do you currently live in Ontario?</Form.Label>
-                    <Form.Select id='drop-down-place2' name="livingInOntario" aria-label="Default select example" style={{marginBottom: "1rem"}} onChange={handleChange}>
-                      <option>Select an option</option>
-                      <option value="1">Yes</option>
-                      <option value="2">No</option>
-                      <option value="3">No, but I would like to relocate</option>
-                    </Form.Select>
-                    <Button type="submit" className="btn btn-primary">Submit</Button>
+                    <Form.Group className="mb-3">
+                      <Form.Label htmlFor="citizenship-select">Are you a citizen or current resident of Canada with an active work visa?</Form.Label>
+                      <Form.Select
+                        id="citizenship-select"
+                        name="citizenship"
+                        value={formData.citizenship}
+                        onChange={handleChange}
+                      >
+                        <option value="">Select an option</option>
+                        <option value="1">I am a Canadian citizen</option>
+                        <option value="2">I am a Canadian resident with a work visa</option>
+                        <option value="3">Other - please explain in the "Message" field above</option>
+                      </Form.Select>
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                      <Form.Label htmlFor="living-in-ontario-select">Do you currently live in Ontario?</Form.Label>
+                      <Form.Select
+                        id="living-in-ontario-select"
+                        name="livingInOntario"
+                        value={formData.livingInOntario}
+                        onChange={handleChange}
+                      >
+                        <option value="">Do you currently live in Ontario?</option>
+                        <option value="1">Yes</option>
+                        <option value="2">No</option>
+                        <option value="3">No, but I would like to relocate</option>
+                      </Form.Select>
+                    </Form.Group>
+                    {error && <div className="text-danger mb-3">{error}</div>}
+                    {success && <div className="text-success mb-3">{success}</div>}
+                    <Button type="submit" className="btn btn-primary">
+                      Submit
+                    </Button>
                   </Form>
                 </Modal.Body>
                 <Modal.Footer>
@@ -130,7 +199,6 @@ const CareerContent = () => {
             </div>
           </Stack>
         </Container>
-
       </div>
     </section>
   );
