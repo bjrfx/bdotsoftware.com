@@ -30,7 +30,7 @@ const CareerContent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://185.27.133.12/careers', formData)
+    axios.post('http://185.27.133.12/apply', formData)
       .then((response) => {
         alert('Application submitted successfully');
         setShow(false);
