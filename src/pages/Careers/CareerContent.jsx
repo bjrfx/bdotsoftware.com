@@ -30,7 +30,7 @@ const CareerContent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://bdotsoftware.com/careers', formData)
+    axios.post('http://185.27.133.12:3000', formData)
       .then((response) => {
         alert('Application submitted successfully');
         setShow(false);
