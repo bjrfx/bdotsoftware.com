@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import BGwhiteLogo from '../../../images/Logos/BG-white-trans.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Auth/AuthContext'; // Import AuthContext
 import { auth } from '../../../firebase/firebaseConfig'; // Import Firebase auth
 import { signOut } from 'firebase/auth'; // Import signOut
+import Alert from '@mui/material/Alert'; // Import MUI Alert
 
 const Header = () => {
     const { currentUser } = useContext(AuthContext); // Get the current user from AuthContext
     const navigate = useNavigate();
+    const [alert, setAlert] = useState(null); // State for managing alerts
 
     const handleClick = (to) => (e) => {
         e.preventDefault();
@@ -16,9 +18,24 @@ const Header = () => {
     };
 
     const handleLogout = async () => {
-        await signOut(auth);
-        navigate('/');
+        try {
+            await signOut(auth);
+            setAlert({ type: 'success', message: 'Successfully signed out!' });
+            // Redirect to home page after setting the alert
+            navigate('/');
+        } catch (error) {
+            console.error('Error signing out:', error);
+            setAlert({ type: 'error', message: 'Error signing out. Please try again.' });
+        }
     };
+
+    useEffect(() => {
+        if (alert) {
+            // Automatically close the alert after 5 seconds
+            const timer = setTimeout(() => setAlert(null), 5000);
+            return () => clearTimeout(timer); // Cleanup timer on component unmount
+        }
+    }, [alert]);
 
     return (
         <header className="header_section">
@@ -54,7 +71,7 @@ const Header = () => {
                             </Link>
                             {currentUser ? (
                                 <Link className="nav-item" onClick={handleLogout} to='/'>
-                                    <a className="nav-link">Logout</a>
+                                    <a className="nav-link">Sign out</a>
                                 </Link>
                             ) : (
                                 <Link className="nav-item" onClick={handleClick('/signin')} to='/signin'>
@@ -72,6 +89,13 @@ const Header = () => {
                     </div>
                 </nav>
             </div>
+            {alert && (
+                <div className="alert-container" style={{ position: 'fixed', top: 0, width: '100%', zIndex: 1000 }}>
+                    <Alert severity={alert.type} onClose={() => setAlert(null)}>
+                        {alert.message}
+                    </Alert>
+                </div>
+            )}
         </header>
     );
 };
