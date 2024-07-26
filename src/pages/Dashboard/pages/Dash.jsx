@@ -82,13 +82,18 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
     }),
 );
 
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function Dash({ profileName, handleSignOut }) {
     const [open, setOpen] = React.useState(false);
+    const [selectedMenuItem, setSelectedMenuItem] = React.useState('Dashboard');
+    
     const toggleDrawer = () => {
         setOpen(!open);
+    };
+
+    const handleMenuItemClick = (menuItem) => {
+        setSelectedMenuItem(menuItem);
     };
 
     return (
@@ -145,9 +150,9 @@ export default function Dash({ profileName, handleSignOut }) {
                     </Toolbar>
                     <Divider />
                     <List component="nav">
-                        {mainListItems}
+                        {mainListItems(handleMenuItemClick)}
                         <Divider sx={{ my: 1 }} />
-                        {secondaryListItems}
+                        {secondaryListItems(handleMenuItemClick)}
                     </List>
                 </Drawer>
                 <Box
@@ -165,40 +170,49 @@ export default function Dash({ profileName, handleSignOut }) {
                     <Toolbar />
                     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                         <Grid container spacing={3}>
-                            {/* Chart */}
-                            <Grid item xs={12} md={8} lg={9}>
-                                <Paper
-                                    sx={{
-                                        p: 2,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        height: 240,
-                                    }}
-                                >
-                                    <Chart />
-                                </Paper>
-                            </Grid>
-                            {/* Recent Deposits */}
-                            <Grid item xs={12} md={4} lg={3}>
-                                <Paper
-                                    sx={{
-                                        p: 2,
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        height: 240,
-                                    }}
-                                >
-                                    <Deposits />
-                                </Paper>
-                            </Grid>
-                            {/* Recent Orders */}
-                            <Grid item xs={12} sx={{
-                                display: { xs: 'none', sm: 'none', md: 'none', lg: 'flex' },
-                            }}>
-                                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                    <Orders />
-                                </Paper>
-                            </Grid>
+                            {selectedMenuItem === 'Dashboard' && (
+                                <>
+                                    {/* Chart */}
+                                    <Grid item xs={12} md={8} lg={9}>
+                                        <Paper
+                                            sx={{
+                                                p: 2,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                height: 240,
+                                            }}
+                                        >
+                                            <Chart />
+                                        </Paper>
+                                    </Grid>
+                                    {/* Recent Deposits */}
+                                    <Grid item xs={12} md={4} lg={3}>
+                                        <Paper
+                                            sx={{
+                                                p: 2,
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                height: 240,
+                                            }}
+                                        >
+                                            <Deposits />
+                                        </Paper>
+                                    </Grid>
+                                    {/* Recent Orders */}
+                                    <Grid item xs={12}>
+                                        <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                                            <Orders />
+                                        </Paper>
+                                    </Grid>
+                                </>
+                            )}
+                            {selectedMenuItem !== 'Dashboard' && (
+                                <Grid item xs={12}>
+                                    <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                                        <Typography variant="h1">{selectedMenuItem}</Typography>
+                                    </Paper>
+                                </Grid>
+                            )}
                         </Grid>
                         <Copyright sx={{ pt: 4 }} />
                     </Container>
