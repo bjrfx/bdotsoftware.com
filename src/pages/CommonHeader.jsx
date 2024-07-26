@@ -48,8 +48,8 @@ const CommonHeader = () => {
                             <Link className="nav-item" to='/blog'>
                                 <a className="nav-link" >Blog</a>
                             </Link>
-                            <Link className="nav-item" >
-                                <a className="nav-link" > <i className="fa fa-user" aria-hidden="true"></i> Login</a>
+                            <Link className="nav-item" to='/signin'>
+                                <a className="nav-link" > <i className="fa fa-user" aria-hidden="true"></i> Signin</a>
                             </Link>
                             <form className="form-inline">
                                 <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
