@@ -120,7 +120,7 @@ export default function Dash({ profileName, handleSignOut }) {
                             noWrap
                             sx={{ flexGrow: 1 }}
                         >
-                            Client Dashboard
+                            {profileName}'s Dashboard
                         </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
