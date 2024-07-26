@@ -9,7 +9,7 @@ import Careers from './pages/Careers/Careers';
 import PageNotFound from './pages/pageNotFound/PageNotFound';
 import LoginForm from './pages/Login/LoginForm';
 import SignupForm from './pages/Signup/SignupForm';
-import Dashboard from './pages/Dash/Dashboard';
+import Dashboard from './pages/Dashboard/Dashboard';
 import ForgotPassword from './components/PasswordReset/ForgotPassword';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import { AuthProvider } from './components/Auth/AuthContext';

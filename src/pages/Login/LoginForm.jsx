@@ -11,6 +11,8 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton'; // Import IconButton
+import CloseIcon from '@mui/icons-material/Close'; // Import CloseIcon
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { auth, signInWithEmailAndPassword } from '../../firebase/firebaseConfig'; // Adjust the path as needed
@@ -66,6 +68,10 @@ export default function LoginForm() {
         }
     };
 
+    const handleClose = () => {
+        navigate('/'); // Redirect to the home page
+    };
+
     return (
         <ThemeProvider theme={defaultTheme}>
             <Container component="main" maxWidth="xs">
@@ -76,8 +82,22 @@ export default function LoginForm() {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        position: 'relative', // Ensure the close button is positioned correctly
                     }}
                 >
+                    <IconButton
+                        edge="end"
+                        color="inherit"
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>
@@ -124,7 +144,7 @@ export default function LoginForm() {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link to='/forgot-password' >
+                                <Link to='/forgot-password'>
                                     Forgot password?
                                 </Link>
                             </Grid>

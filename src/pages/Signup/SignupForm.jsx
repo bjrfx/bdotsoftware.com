@@ -11,6 +11,8 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton'; // Import IconButton
+import CloseIcon from '@mui/icons-material/Close'; // Import CloseIcon
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { auth, createUserWithEmailAndPassword, db, doc, setDoc } from '../../firebase/firebaseConfig'; // Adjust the path as needed
@@ -74,11 +76,36 @@ export default function SignupForm() {
             setError('Error signing up. Please try again.');
         }
     };
+    const handleClose = () => {
+        navigate('/signin'); // Redirect to the home page
+    };
 
     return (
         <ThemeProvider theme={defaultTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
+                <Box
+                    sx={{
+                        marginTop: 8,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        position: 'relative', // Ensure the close button is positioned correctly
+                    }}
+                >
+                <IconButton
+                        edge="end"
+                        color="inherit"
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
                 <Box
                     sx={{
                         marginTop: 8,
@@ -152,6 +179,7 @@ export default function SignupForm() {
                     </Box>
                     {error && <div style={{ color: 'red', marginTop: '10px' }}>{error}</div>}
                     {success && <div style={{ color: 'green', marginTop: '10px' }}>{success}</div>}
+                </Box>
                 </Box>
                 <Copyright sx={{ mt: 5 }} />
             </Container>
