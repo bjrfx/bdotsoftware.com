@@ -46,7 +46,7 @@ console.log('Device ID:', deviceId);
           &copy; <span id="displayYear">{new Date().getFullYear()}</span> All Rights Reserved By{' '}
           <Link to='/'>BDOT SOFTWARE</Link>
         </p>
-        <Typography fontWeight={100} variant='p' component='p'>{deviceId}: {ip} {city}, {region}</Typography>
+        {/* <Typography fontWeight={100} variant='p' component='p'>{deviceId}: {ip} {city}, {region}</Typography> */}
       </div>
     </section>
   );

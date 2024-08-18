@@ -71,6 +71,7 @@ export default function LoginForm() {
     const handleClose = () => {
         navigate('/'); // Redirect to the home page
     };
+    const [isLinkDisabled, setIsLinkDisabled] = useState(true); // Change this to control the link state
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -149,9 +150,18 @@ export default function LoginForm() {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link to='/signup' variant="body2">
+                                {/* <Link to='/signup' variant="body2">
                                     {"Don't have an account? Sign Up"}
-                                </Link>
+                                </Link> */}
+                                {isLinkDisabled ? (
+                                    <Typography variant="body2" style={{ color: 'gray', cursor: 'not-allowed' }}>
+                                        {"Don't have an account? Sign Up"}
+                                    </Typography>
+                                ) : (
+                                    <Link to='/signup' variant="body2">
+                                        {"Don't have an account? Sign Up"}
+                                    </Link>
+                                )}
                             </Grid>
                         </Grid>
                     </Box>
