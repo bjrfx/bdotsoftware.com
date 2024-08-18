@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InfoSocialIcon = () => {
+const InfoSocialIcon = ({linkdinUrl}) => {
     return (
         <div className="info_social">
             <a >
@@ -9,7 +9,7 @@ const InfoSocialIcon = () => {
             <a >
                 <i className="fa fa-twitter" aria-hidden="true"></i>
             </a>
-            <a >
+            <a href={linkdinUrl}>
                 <i className="fa fa-linkedin" aria-hidden="true"></i>
             </a>
             <a >

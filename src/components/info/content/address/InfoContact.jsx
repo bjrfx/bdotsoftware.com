@@ -1,32 +1,35 @@
-import React from 'react'
-
-const InfoContact = () => {
+import React, { Fragment } from 'react'
+import InfoSocialIcon from './InfoSocialIcon'
+const InfoContact = ({name, address, number, email, linkdinUrl}) => {
   return (
-    <div className="info_contact">
+    <Fragment>
+        <div className="info_contact">
                     <h4>
-                        Address
+                         {name}
                     </h4>
                     <div className="contact_link_box">
                         <a >
                             <i className="fa fa-map-marker" aria-hidden="true"></i>
                             <span>
-                                 London, On, CANADA
+                                  {address}
                             </span>
                         </a>
                         <a >
                             <i className="fa fa-phone" aria-hidden="true"></i>
                             <span>
-                                Call +1 613-617-3904
+                                {number}
                             </span>
                         </a>
                         <a >
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                             <span>
-                                contact@bdotsoftware.com
+                                 {email}
                             </span>
                         </a>
                     </div>
                 </div>
+                <InfoSocialIcon linkdinUrl = {linkdinUrl}/>
+    </Fragment>
   )
 }
 

@@ -63,6 +63,9 @@ const Header = () => {
                             <Link className="nav-item" onClick={handleClick('/why')} to='/why'>
                                 <a className="nav-link">Why Us</a>
                             </Link>
+                            <Link className="nav-item" onClick={handleClick('/team')} to='/team'>
+                                <a className="nav-link">Our team</a>
+                            </Link>
                             <Link className="nav-item" onClick={handleClick('/careers')} to='/careers'>
                                 <a className="nav-link">Careers</a>
                             </Link>

@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './routes/Home';
 import AboutPage from './pages/About/AboutPage';
 import ServicePage from './pages/service/ServicePage';
-// import TeamPage from './pages/team/TeamPage';
+import TeamPage from './pages/team/TeamPage';
 import WhyPage from './pages/why/WhyPage';
 import Blog from './blog/Blog';
 import Careers from './pages/Careers/Careers';
@@ -21,7 +21,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/services' element={<ServicePage />} />
-        {/* <Route path='/team' element={<TeamPage />} /> */}
+        <Route path='/team' element={<TeamPage />} />
         <Route path='/careers' element={<Careers />} />
         <Route path='/why' element={<WhyPage />} />
         {/* <Route path='/blog' element={<Blog />} /> */}

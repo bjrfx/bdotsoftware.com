@@ -1,9 +1,10 @@
 import React from 'react'
-import SivaBandarupalli from './profiles/SivaBandarupalli'
-import SarvanaKumar from './profiles/SarvanaKumar'
-import EarlMartinez from './profiles/EarlMartinez'
-import JosephineAllard from './profiles/JosephineAllard'
-
+// import SivaBandarupalli from './profiles/SivaBandarupalli'
+// import SarvanaKumar from './profiles/SarvanaKumar'
+// import EarlMartinez from './profiles/EarlMartinez'
+// import JosephineAllard from './profiles/JosephineAllard'
+import Laxmi from './profiles/Laxmi'
+import Patrick from './profiles/Patrick'
 const Team = () => {
     return (
         <section className="team_section layout_padding">
@@ -16,10 +17,12 @@ const Team = () => {
 
                 <div className="team_container">
                     <div className="row">
-                        <SivaBandarupalli />
+                        <Laxmi />
+                        <Patrick />
+                        {/* <SivaBandarupalli />
                         <SarvanaKumar />
                         <EarlMartinez />
-                        <JosephineAllard />
+                        <JosephineAllard /> */}
                     </div>
                 </div>
             </div>

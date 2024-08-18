@@ -10,7 +10,8 @@ const Info = () => {
     <section className="info_section layout_padding2">
     <div className="container">
         <div className="row">
-                <Address />
+                <Address name = "London" address = "London, ON, Canada" number = "+1 (437) 376-1965" email = "laxmi@bdotsoftware.com" linkdinUrl = "https://www.linkedin.com/in/developer-laxmi"/>
+                <Address name = "Belgium" address = "Deerlijk, Belgium" number = "+32 493 33 62 43" email = "patrick@bdotsoftware.com" linkdinUrl="https://www.linkedin.com/in/patrick-de-paepe-b071a7169/"/>
                 <InfoDetail />
                 <Links />
                 <SubscribeForm />
