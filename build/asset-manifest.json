@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.js": "/static/js/main.15c64243.js",
+    "main.js": "/static/js/main.caeaaef9.js",
     "static/media/devops.png": "/static/media/devops.0d5e265ea2bb5706a00c.png",
     "static/media/motion-graphics-min.png": "/static/media/motion-graphics-min.a8adf41c7987d542d74d.png",
     "static/media/BDOTWHITE.png": "/static/media/BDOTWHITE.ea19591f13a1b9119b38.png",
     "static/media/web-minified.png": "/static/media/web-minified.e9eccbda46a17ae73376.png",
     "static/media/CloudMigration.png": "/static/media/CloudMigration.cfd06972b3eb1aa5c184.png",
     "static/media/hero-bg.png": "/static/media/hero-bg.ca8bd401eac4682570d2.png",
+    "static/media/patric.jpeg": "/static/media/patric.39c006dac8f68e425701.jpeg",
+    "static/media/laxmi.jpeg": "/static/media/laxmi.1eb9b3ea533c569b97cc.jpeg",
     "static/media/logo-2.png": "/static/media/logo-2.22bd6bf6bf7bdc019831.png",
     "static/media/w4.png": "/static/media/w4.742caae5101d98ae2c49.png",
     "static/media/logo-masakali.png": "/static/media/logo-masakali.b0ab927d357f8aa74895.png",
@@ -17,9 +19,9 @@
     "static/media/graphicDesign.png": "/static/media/graphicDesign.8a8b73d60cce98098934.png",
     "static/media/icons8-call_to_action.png": "/static/media/icons8-call_to_action.8f354decd1c08db21dd1.png",
     "index.html": "/index.html",
-    "main.15c64243.js.map": "/static/js/main.15c64243.js.map"
+    "main.caeaaef9.js.map": "/static/js/main.caeaaef9.js.map"
   },
   "entrypoints": [
-    "static/js/main.15c64243.js"
+    "static/js/main.caeaaef9.js"
   ]
 }
