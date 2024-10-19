@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import CommonHeader from '../pages/CommonHeader'
 import Info from '../components/info/Info'
 import Footer from '../components/footer/Footer'
 import { Box, Typography } from '@mui/material'
+import BlogMetaData from './BlogMetaData'
 const Blog = () => {
   return (
-    <div className='sub_page'>
+    <Fragment>
+      <BlogMetaData />
+      <div className='sub_page'>
       <CommonHeader />
       <Box sx={{ height: '50vh' }}>
         <Box sx={{ textAlign: 'center', marginTop: {lg: '25%', sm: '40%'} }}>
@@ -17,6 +20,7 @@ const Blog = () => {
       <Info />
       <Footer />
     </div>
+    </Fragment>
   )
 }
 

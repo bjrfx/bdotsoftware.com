@@ -52,16 +52,16 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav  ">
                             <Link className="nav-item" onClick={handleClick('/')} to='/'>
-                                <a className="nav-link">Home</a>
+                                <a href=' ' className="nav-link">Home</a>
                             </Link>
                             <Link className="nav-item" onClick={handleClick('/about')} to='/about'>
-                                <a className="nav-link">About</a>
+                                <a href=' ' className="nav-link">About</a>
                             </Link>
                             <Link className="nav-item" onClick={handleClick('/services')} to='/services'>
-                                <a className="nav-link">Services</a>
+                                <a href=' ' className="nav-link">Services</a>
                             </Link>
                             <Link className="nav-item" onClick={handleClick('/request-service')} to='/request-service'>
-                                    <a className="nav-link">Request a service</a>
+                                    <a href=' ' className="nav-link">Request a service</a>
                                 </Link>
                             {/* <Link className="nav-item" onClick={handleClick('/why')} to='/why'>
                                 <a className="nav-link">Why Us</a>
@@ -70,27 +70,27 @@ const Header = () => {
                                 <a className="nav-link">Our team</a>
                             </Link> */}
                             <Link className="nav-item" onClick={handleClick('/careers')} to='/careers'>
-                                <a className="nav-link">Careers</a>
+                                <a href=' ' className="nav-link">Careers</a>
                             </Link>
                             <Link className="nav-item" onClick={handleClick('/blog')} to='/blog'>
-                                <a className="nav-link">Blog</a>
+                                <a href=' ' className="nav-link">Blog</a>
                             </Link>
                             {currentUser ? (
                                 <Link className="nav-item" onClick={handleLogout} to='/'>
-                                    <a className="nav-link">Sign out</a>
+                                    <a href=' ' className="nav-link">Sign out</a>
                                 </Link>
                             ) : (
                                 <Link className="nav-item" onClick={handleClick('/signin')} to='/signin'>
-                                    <a className="nav-link">
+                                    <a href=' ' className="nav-link">
                                         <i className="fa fa-user" aria-hidden="true"></i> Sign in
                                     </a>
                                 </Link>
                             )}
-                            <form className="form-inline">
+                            {/* <form className="form-inline">
                                 <button className="btn my-2 my-sm-0 nav_search-btn" type="submit">
                                     <i className="fa fa-search" aria-hidden="true"></i>
                                 </button>
-                            </form>
+                            </form> */}
                         </ul>
                     </div>
                 </nav>

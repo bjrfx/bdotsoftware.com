@@ -17,6 +17,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import { auth, signInWithEmailAndPassword } from '../../firebase/firebaseConfig'; // Adjust the path as needed
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import SignInMetaData from './SignInMetaData';
 
 function Copyright(props) {
     return (
@@ -74,7 +75,9 @@ export default function LoginForm() {
     const [isLinkDisabled, setIsLinkDisabled] = useState(true); // Change this to control the link state
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+       <React.Fragment>
+        <SignInMetaData />
+         <ThemeProvider theme={defaultTheme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -171,5 +174,6 @@ export default function LoginForm() {
                 <Copyright sx={{ mt: 8, mb: 4 }} />
             </Container>
         </ThemeProvider>
+       </React.Fragment>
     );
 }
