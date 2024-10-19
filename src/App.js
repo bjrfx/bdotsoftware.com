@@ -13,13 +13,14 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import ForgotPassword from './components/PasswordReset/ForgotPassword';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import { AuthProvider } from './components/Auth/AuthContext';
-
+import RequestAService from './pages/RequestAService/RequestAService';
 function App() {
   return (
     <AuthProvider> {/* Wrap the entire Routes with AuthProvider */}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<AboutPage />} />
+        <Route path='/request-service' element={<RequestAService />} />
         <Route path='/services' element={<ServicePage />} />
         <Route path='/team' element={<TeamPage />} />
         <Route path='/careers' element={<Careers />} />

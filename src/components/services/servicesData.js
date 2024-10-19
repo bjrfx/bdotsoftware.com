@@ -5,6 +5,7 @@ import platformEngineeringIcon from '../../images/PlatformEngineering.png'
 import webDevelopmentIcon from '../../images/webIcon.png'
 import mobile from '../../images/icons/mobile.png'
 import graphicDesign from '../../images/icons/graphicDesign.png'
+import dataAnalysis from '../../images/dataAnalysis.png'
 const servicesData = [
     {
         id: 1,
@@ -1336,6 +1337,82 @@ const servicesData = [
 
                         title4: "Design Workshops:",
                         description4: "Enhance your team's skills with our tailored design workshops."
+                    }
+                }
+            ]
+        }
+    },
+    {
+        id: 8,
+        title: "Data Analysis",
+        description: "Unlock the power of data to drive business growth. We provide comprehensive data analysis services to help you make informed decisions.",
+        image: dataAnalysis,
+        content: {
+            description: "At BDOT Software, we help businesses leverage data to gain valuable insights and make data-driven decisions. Our expert team analyzes and interprets your data, offering actionable solutions for optimizing performance and achieving your business goals. Explore our range of services below:",
+            list: [
+                {
+                    title: "Data Exploration and Cleaning",
+                    subsection: {
+                        title: "Data Cleaning:",
+                        description: "We clean and prepare your data by handling missing values, removing duplicates, and ensuring data consistency.",
+    
+                        title2: "Data Integration:",
+                        description2: "Combine data from multiple sources to create a unified view, ensuring that all your data is in one place for accurate analysis.",
+    
+                        title3: "Outlier Detection:",
+                        description3: "Identify and handle outliers that may skew your analysis, ensuring data accuracy and reliability."
+                    }
+                },
+                {
+                    title: "Descriptive Analytics",
+                    subsection: {
+                        title: "Data Summarization:",
+                        description: "Summarize and visualize key metrics to provide an overview of your business's current performance.",
+    
+                        title2: "Trend Analysis:",
+                        description2: "Identify historical trends in your data to predict future behavior and make informed decisions.",
+    
+                        title3: "Data Visualization:",
+                        description3: "Transform complex data sets into easy-to-understand charts and graphs to help stakeholders grasp insights quickly."
+                    }
+                },
+                {
+                    title: "Predictive Analytics",
+                    subsection: {
+                        title: "Forecasting:",
+                        description: "Use advanced statistical techniques and machine learning models to predict future outcomes and trends.",
+    
+                        title2: "Risk Analysis:",
+                        description2: "Assess potential risks and uncertainties in your business using predictive models.",
+    
+                        title3: "Customer Segmentation:",
+                        description3: "Segment your customer base using data-driven insights to target specific groups more effectively."
+                    }
+                },
+                {
+                    title: "Advanced Analytics",
+                    subsection: {
+                        title: "Machine Learning Models:",
+                        description: "Build and deploy custom machine learning models to automate tasks and uncover hidden patterns in your data.",
+    
+                        title2: "Natural Language Processing (NLP):",
+                        description2: "Analyze text data to extract meaningful insights, such as sentiment analysis, keyword extraction, and more.",
+    
+                        title3: "Big Data Analytics:",
+                        description3: "Leverage big data technologies to process and analyze vast amounts of data, providing you with deep insights into your operations."
+                    }
+                },
+                {
+                    title: "Business Intelligence",
+                    subsection: {
+                        title: "KPI Dashboards:",
+                        description: "Develop interactive dashboards that track your key performance indicators (KPIs) in real-time.",
+    
+                        title2: "Reporting Automation:",
+                        description2: "Automate the generation of reports to provide consistent, up-to-date insights with minimal manual effort.",
+    
+                        title3: "Data Warehousing:",
+                        description3: "Design and implement data warehousing solutions to store and manage your data efficiently."
                     }
                 }
             ]

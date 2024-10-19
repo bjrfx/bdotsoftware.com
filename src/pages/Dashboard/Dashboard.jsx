@@ -1,52 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth, db } from '../../firebase/firebaseConfig';
+import { db } from '../../firebase/firebaseConfig';
+import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { useAuth } from '../../components/Auth/AuthContext';
-import { doc, getDoc } from 'firebase/firestore';
 import Dash from './pages/Dash';
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const { currentUser } = useAuth();
-  const [name, setName] = useState('');
+  const { currentUser } = useAuth(); // Use auth context to get the current user
+  const [name, setName] = useState(''); // Empty name state initially
+  const [serviceRequests, setServiceRequests] = useState([]);
 
   useEffect(() => {
     const fetchUserName = async () => {
       if (currentUser) {
-        const userDoc = await getDoc(doc(db, 'users', currentUser.uid));
+        const userDoc = await getDoc(doc(db, 'users', currentUser.uid)); // Fetch user document
         if (userDoc.exists()) {
-          setName(userDoc.data().name);
+          setName(userDoc.data().name); // Set the user's name from Firestore
         }
       }
     };
 
-    fetchUserName();
-  }, [currentUser]);
+    const fetchServiceRequests = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'serviceRequests'));
+        const requests = querySnapshot.docs.map((doc) => doc.data());
+        setServiceRequests(requests);
+      } catch (error) {
+        console.error('Error fetching service requests:', error);
+      }
+    };
 
-  const handleSignOut = async () => {
-    try {
-      await signOut(auth);
-      navigate('/');
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
-  };
+    fetchUserName(); // Fetch the user's name
+    fetchServiceRequests(); // Fetch service requests
+  }, [currentUser]);
 
   return (
     <div>
-      {/* <h1>Dashboard</h1>
-      {currentUser && (
-        <p>
-          Welcome, {name ? `${name} (${currentUser.email})` : currentUser.email}
-        </p>
-      )}
-      <button onClick={handleSignOut}>Sign Out</button> */}
-      { currentUser && (
-        <Dash profileName={name} handleSignOut={handleSignOut} />
-      )
-        
-      }
+      <Dash profileName={name} serviceRequests={serviceRequests} />
     </div>
   );
 };

@@ -72,12 +72,15 @@ const CommonHeader = () => {
                                 <Link className="nav-item" onClick={handleClick('/services')} to='/services'>
                                     <a className="nav-link">Services</a>
                                 </Link>
-                                <Link className="nav-item" onClick={handleClick('/why')} to='/why'>
+                                <Link className="nav-item" onClick={handleClick('/request-service')} to='/request-service'>
+                                    <a className="nav-link">Request a service</a>
+                                </Link>
+                                {/* <Link className="nav-item" onClick={handleClick('/why')} to='/why'>
                                     <a className="nav-link">Why Us</a>
-                                </Link>
-                                <Link className="nav-item" onClick={handleClick('/team')} to='/team'>
+                                </Link> */}
+                                {/* <Link className="nav-item" onClick={handleClick('/team')} to='/team'>
                                     <a className="nav-link">Our team</a>
-                                </Link>
+                                </Link> */}
                                 <Link className="nav-item" onClick={handleClick('/careers')} to='/careers'>
                                     <a className="nav-link">Careers</a>
                                 </Link>
