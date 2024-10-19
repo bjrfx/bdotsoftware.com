@@ -20,7 +20,7 @@ const routes = [
 ];
 
 async function generateSitemap() {
-  const sitemap = new SitemapStream({ hostname: 'https://www.yourwebsite.com' });
+  const sitemap = new SitemapStream({ hostname: 'https://bdotsoftware.com' });
 
   routes.forEach(route => sitemap.write(route));
   sitemap.end();
