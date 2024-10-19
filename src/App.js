@@ -14,6 +14,7 @@ import ForgotPassword from './components/PasswordReset/ForgotPassword';
 import PrivateRoute from './components/Auth/PrivateRoute';
 import { AuthProvider } from './components/Auth/AuthContext';
 import RequestAService from './pages/RequestAService/RequestAService';
+import WikiPage from './pages/Wiki/WikiPage';
 function App() {
   return (
     <AuthProvider> {/* Wrap the entire Routes with AuthProvider */}
@@ -46,6 +47,8 @@ function App() {
             </PrivateRoute>
           }
         />
+        {/* New dynamic wiki route */}
+        <Route path="/wiki/:slug" element={<WikiPage />} />
         {/* <Route path='*' element={<Navigate to='/page-not-found' />} /> */}
       </Routes>
     </AuthProvider>
